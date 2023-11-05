@@ -1,8 +1,9 @@
 from django.urls import path
 from django.views.decorators.cache import cache_page
-from .views import CategoryListAPIView, latest_post_api_view, PostListView, posts_list_view_from_category, search_posts_api_view, PostDetailAPIView
+from .views import CategoryListAPIView, latest_post_api_view, PostListView, posts_list_view_from_category, search_posts_api_view, PostDetailAPIView, index
 
 urlpatterns = [
+    path('', index, name='index-url'),
     path('posts/', cache_page(60*1)(PostListView.as_view()), name='posts-url'),
     path('post/<int:id>/', PostDetailAPIView.as_view(), name='post-detail)'),
     path('latest_post/', latest_post_api_view, name='latest-url'),

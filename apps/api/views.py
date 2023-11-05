@@ -5,6 +5,7 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from django.shortcuts import render
 
 class PostListView(ListAPIView):
     first_post = Post.objects.first()
@@ -47,3 +48,5 @@ def search_posts_api_view(request, name):
         else:
             return Response({'msg': 'No se encontró ningún artículo.'}, status=status.HTTP_204_NO_CONTENT)
 
+def index(request):
+    return render(request, 'index.html')
