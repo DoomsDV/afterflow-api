@@ -5,9 +5,9 @@ import dj_database_url
 
 load_dotenv()
 
-DEBUG = False
+DEBUG = os.environ.get('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['afterflow-api.onrender.com']
 
 DATABASES = {
     'default': dj_database_url.config(
