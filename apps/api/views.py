@@ -8,7 +8,7 @@ from rest_framework import status
 
 class PostListView(ListAPIView):
     first_post = Post.objects.first()
-    queryset = Post.objects.all().exclude(pk=first_post.pk)
+    queryset = Post.objects.all()[1:]
     serializer_class = PostSerializer
 
 class CategoryListAPIView(ListAPIView):

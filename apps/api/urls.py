@@ -4,7 +4,7 @@ from .views import CategoryListAPIView, latest_post_api_view, PostListView, post
 
 urlpatterns = [
     path('posts/', cache_page(60*1)(PostListView.as_view()), name='posts-url'),
-    path('post/<int:pk>/', PostDetailAPIView.as_view(), name='post-detail)'),
+    path('post/<int:id>/', PostDetailAPIView.as_view(), name='post-detail)'),
     path('latest_post/', latest_post_api_view, name='latest-url'),
     path('categories/', cache_page(60*2)(CategoryListAPIView.as_view()), name='categories'),
     path('posts/category/<slug:slug>/', posts_list_view_from_category, name='category-posts'),
