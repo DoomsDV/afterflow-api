@@ -5,6 +5,8 @@ import dj_database_url
 
 load_dotenv()
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['afterflow-api.onrender.com']
