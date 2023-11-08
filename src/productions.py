@@ -13,7 +13,7 @@ ALLOWED_HOSTS = ['afterflow-api.onrender.com']
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://afterflowdb_user:jP7G7t77qloOlhvOAcz2vp4x2R40tGPO@dpg-cl17peis1bgc73fo7mo0-a.oregon-postgres.render.com/afterflowdb',
+        default = os.environ.get('DB_URI'),
         conn_max_age=600
     )
 }
